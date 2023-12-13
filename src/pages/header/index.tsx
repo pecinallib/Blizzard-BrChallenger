@@ -3,7 +3,7 @@ import Image from 'next/image';
 export const Header = () => {
   return (
     <header className="w-full h-20 md:h-24 bg-transparent flex items-center justify-between absolute border-b-2 border-opacity-10 border-white">
-      <div className="ml-6 md:ml-11 grid place-self-end">
+      <div className="ml-6 md:ml-11 grid place-self-end xl:ml-28">
         <Image
           src="/assets/logo-blizzard.png"
           alt="logo"
@@ -19,7 +19,16 @@ export const Header = () => {
           className="-mb-2"
         />
       </div>
-      <div className="mr-6 flex">
+      <div className="hidden xl:block -ml-28">
+        <ul className="text-center text-white text-sm font-medium flex gap-9">
+          <li>Jogos</li>
+          <li>Esportes</li>
+          <li>Loja</li>
+          <li>Noticias</li>
+          <li>Supoerte</li>
+        </ul>
+      </div>
+      <div className="mr-6 flex xl:mr-28">
         <div className="hidden md:flex mr-20 gap-4">
           <a className="w-32 h-[41px] px-4 py-2.5 rounded-[3px] border border-white gap-[7px] text-center text-white text-sm font-medium cursor-pointer">
             Criar Conta
