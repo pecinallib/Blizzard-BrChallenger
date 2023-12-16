@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { useState } from 'react';
 import React from 'react';
 
@@ -10,7 +10,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <section
-      className="w-full  h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center"
+      className="w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center "
       style={{
         backgroundImage: "url('/assets/banner-hero/games/diablo-bg.png')"
       }}
@@ -31,7 +31,7 @@ export const HomePage: React.FC = () => {
             <ButtonComponents text="Jogue Agora" type="button" />
           </div>
         </div>
-        <div className="w-80 grid grid-flow-col xl:grid-flow-row mt-14 xl:col-start-1 xl:ml-24">
+        <div className="w-12 grid grid-flow-col xl:grid-flow-row mt-14 xl:col-start-1 xl:ml-28 gap-5">
           <Image
             src="/assets/banner-hero/icons/game-1.png"
             alt="logo"
@@ -72,32 +72,36 @@ export const HomePage: React.FC = () => {
           height={154}
         />
         <div className="grid justify-center bg-cover bg-center w-72 h-40">
-          <span className="text-right text-white text-[13px] font-semibold uppercase hidden md:block mb-3">
-            Assista o trailer
-          </span>
           <div
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="bg-cover bg-center cursor-pointer"
+            className="cursor-pointer"
           >
-            <Image
-              src="/assets/Component 1.svg"
-              alt="play"
-              width={46}
-              height={46}
-              className="z-30 absolute ml-28 mt-14 hover:bg-blue-500 rounded-full"
-            />
-            <Image
-              src={
-                isHovered
-                  ? '/assets/banner-hero/games/diablo-animation.gif'
-                  : '/assets/banner-hero/games/diablo-animation-cover.png'
-              }
-              alt="preview gif"
-              width={280}
-              height={158}
-              className="h-40 rounded"
-            />
+            <span className="text-right text-white text-[13px] font-semibold uppercase hidden md:block mb-3">
+              Assista o trailer
+            </span>
+            <div className="relative">
+              <Image
+                src={
+                  isHovered
+                    ? '/assets/banner-hero/games/diablo-animation.gif'
+                    : '/assets/banner-hero/games/diablo-animation-cover.png'
+                }
+                alt="preview gif"
+                width={280}
+                height={158}
+                className="h-40 rounded"
+              />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <Image
+                  src="/assets/play.svg"
+                  alt="play"
+                  width={46}
+                  height={46}
+                  className="cursor-pointer hover:bg-blue-500 rounded-full"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
