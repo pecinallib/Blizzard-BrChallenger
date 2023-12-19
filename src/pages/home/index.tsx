@@ -79,7 +79,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <section
-      className="w-[758px] md:w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center"
+      className={`w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center transition-all duration-500 ease-in-out`}
       style={{
         backgroundImage: `url(${gameSelected.fundo})`
       }}

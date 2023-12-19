@@ -21,7 +21,7 @@ export const Header = () => {
 
   return (
     <div>
-      <header className="w-[758px] md:w-full h-20 md:h-24 bg-transparent flex items-center justify-between absolute border-b-2 border-opacity-10 border-white z-30">
+      <header className="w-full md:w-full h-20 md:h-24 bg-transparent flex items-center justify-between absolute border-b-2 border-opacity-10 border-white z-30">
         <div className="ml-6 md:ml-11 grid xl:ml-28 gap-6 mt-6 md:gap-8 md:mt-8 justify-items-start">
           <Image
             src="/assets/logo-blizzard.png"
