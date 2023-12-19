@@ -38,7 +38,6 @@ export const DropdownJogos: React.FC<DropdownJogosProps> = ({
                     height={69}
                     layout="fixed"
                     objectFit="cover"
-                    className=""
                   />
                 </div>
                 <p className="w-[105px] text-center text-neutral-400 text-sm font-medium leading-[16px] mb-4">

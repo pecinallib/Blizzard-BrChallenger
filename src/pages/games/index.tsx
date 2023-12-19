@@ -12,6 +12,7 @@ interface Games {
 
 export const Games = () => {
   const [games, setGames] = useState<Games[]>([]);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('https://api.brchallenges.com/api/blizzard/games')
@@ -27,8 +28,8 @@ export const Games = () => {
   return (
     <section className="bg-black w-full py-16 grid justify-center">
       <div className="md:w-[708px] xl:w-[1200px]">
-        <div className="flex items-center justify-between mb-14 mx-6">
-          <div className="text-neutral-400 text-[15px] font-semibold hidden xl:block">
+        <div className="flex items-end justify-between mb-14 mx-6">
+          <div className="text-neutral-400 text-[15px] font-semibold hidden xl:block mb-8">
             GAMES
           </div>
           <h1 className="text-white text-[28px] font-bold leading-[30.86px]">
@@ -60,7 +61,7 @@ export const Games = () => {
               height={20}
             />
           </div>
-          <div className="flex mt-8">
+          <div className="flex">
             <Image
               src="/assets/banner-hero/icons/icon-menu.svg"
               alt=""
@@ -77,21 +78,36 @@ export const Games = () => {
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center">
           {games.map((item, key) => (
-            <div key={key}>
-              <div
-                className="w-[156px] h-[213.94px] bg-cover bg-center grid justify-center items-end rounded-sm md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px]"
-                style={{
-                  backgroundImage: `url(${item.image})`
-                }}
-              >
+            <div
+              key={key}
+              onMouseEnter={() => setHoveredIndex(key)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="w-[156px] h-[213.94px] bg-cover bg-center grid justify-center items-end rounded-sm md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden">
+                {item.image && (
+                  <Image
+                    src={item.image}
+                    alt="logo-game"
+                    width={287}
+                    height={393}
+                    objectFit="cover"
+                    quality={100}
+                    loading="eager"
+                    className={`w-full h-full transform transition-all ${
+                      hoveredIndex === key ? 'scale-125' : 'scale-100'
+                    }`}
+                  />
+                )}
                 {item.logo && (
                   <Image
                     src={item.logo}
                     alt="logo-game"
                     width={82}
                     height={54}
-                    objectFit="contain"
-                    className="mb-6"
+                    quality={100}
+                    loading="eager"
+                    objectFit="cover"
+                    className="mb-6 xl:w-[148px] xl:h-[98px] absolute left-[25%]"
                   />
                 )}
               </div>
