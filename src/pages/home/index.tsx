@@ -5,72 +5,117 @@ import React from 'react';
 
 import { ButtonComponents } from '../../components/button/index';
 
+interface Game {
+  id: number;
+  imagem: string;
+  fundo: string;
+  logo: string;
+  texto: string;
+  descricao: string;
+  gifCover: string;
+  gif: string;
+}
+
+const dataGames: Game[] = [
+  {
+    id: 1,
+    imagem: '/assets/banner-hero/icons/game-1.png',
+    fundo: '/assets/banner-hero/games/diablo-bg.png',
+    logo: '/assets/banner-hero/games/diablo-logo.png',
+    texto: 'Retorne à escuridão com o jogo Diablo IV',
+    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
+    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
+    gif: '/assets/banner-hero/games/diablo-animation.gif'
+  },
+  {
+    id: 2,
+    imagem: '/assets/banner-hero/icons/game-2.png',
+    fundo: '/assets/banner-hero/games/hearthstone-bg.png',
+    logo: '/assets/banner-hero/games/hearthstone-logo.png',
+    texto: 'Novo pacote de expansão Hearthstone',
+    descricao: 'A Horda e a Aliança se encontraram no Vale Alterac para lutar',
+    gifCover: '/assets/banner-hero/games/hearthstone-animation-cover.png',
+    gif: '/assets/banner-hero/games/hearthstone-animation.gif'
+  },
+  {
+    id: 3,
+    imagem: '/assets/banner-hero/icons/game-3.png',
+    fundo: '/assets/banner-hero/games/wow-bg.png',
+    logo: '/assets/banner-hero/games/wow-logo.png',
+    texto: 'Desbrave as Terras Sombrias em Shadowlands!',
+    descricao: 'O que jaz além do mundo que você conhece?',
+    gifCover: '/assets/banner-hero/games/wow-animation-cover.png',
+    gif: '/assets/banner-hero/games/wow-animation.gif'
+  },
+  {
+    id: 4,
+    imagem: '/assets/banner-hero/icons/game-4.png',
+    fundo: '/assets/banner-hero/games/diablo-bg.png',
+    logo: '/assets/banner-hero/games/diablo-logo.png',
+    texto: 'Retorne à escuridão com o jogo Diablo IV',
+    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
+    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
+    gif: '/assets/banner-hero/games/diablo-animation.gif'
+  },
+  {
+    id: 5,
+    imagem: '/assets/banner-hero/icons/game-5.png',
+    fundo: '/assets/banner-hero/games/diablo-bg.png',
+    logo: '/assets/banner-hero/games/diablo-logo.png',
+    texto: 'Retorne à escuridão com o jogo Diablo IV',
+    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
+    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
+    gif: '/assets/banner-hero/games/diablo-animation.gif'
+  }
+];
+
 export const HomePage: React.FC = () => {
+  const [gameSelected, setGameSelected] = useState(dataGames[0]);
   const [isHovered, setIsHovered] = useState(false);
+
+  const handleCliqueJogo = (jogo: Game) => {
+    setGameSelected(jogo);
+  };
 
   return (
     <section
-      className="w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center "
+      className="w-[758px] md:w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center"
       style={{
-        backgroundImage: "url('/assets/banner-hero/games/diablo-bg.png')"
+        backgroundImage: `url(${gameSelected.fundo})`
       }}
     >
       <div className="ml-6 md:ml-12 col-span-2 xl:grid xl:grid-flow-col xl:grid-cols-2 xl:ml-0">
         <div className="xl:-ml-36">
           <div className="mt-32 md:mt-12 w-[283px] md:w-[562px]">
-            <h1 className="text-white text-[40px] font-bold leading-[44px] md:text-[64px] md:leading-[70px] md:whitespace-nowrap">
-              Retorne à <br /> escuridão com o{' '}
-              <br className="hidden md:block" />
-              game Diablo IV
+            <h1 className="w-[283px] text-white text-[40px] font-bold leading-[44px] md:w-[562px] md:text-[64px] md:leading-[70px] ">
+              {gameSelected.texto}
             </h1>
             <p className="text-white text-lg font-normal mt-2">
-              O retorno de Lilith traz uma era de escuridão e sofrimento
+              {gameSelected.descricao}
             </p>
           </div>
           <div className="mt-8">
             <ButtonComponents text="Jogue Agora" type="button" />
           </div>
         </div>
-        <div className="w-12 grid grid-flow-col xl:grid-flow-row mt-14 xl:col-start-1 xl:ml-28 gap-5">
-          <Image
-            src="/assets/banner-hero/icons/game-1.png"
-            alt="logo"
-            width={48}
-            height={48}
-          />
-          <Image
-            src="/assets/banner-hero/icons/game-2.png"
-            alt="logo"
-            width={48}
-            height={48}
-          />
-          <Image
-            src="/assets/banner-hero/icons/game-3.png"
-            alt="logo"
-            width={48}
-            height={48}
-          />
-          <Image
-            src="/assets/banner-hero/icons/game-4.png"
-            alt="logo"
-            width={48}
-            height={48}
-          />
-          <Image
-            src="/assets/banner-hero/icons/game-5.png"
-            alt="logo"
-            width={48}
-            height={48}
-          />
+        <div className="flex gap-5 mt-12 xl:flex-col xl:col-start-1 xl:w-12 xl:justify-center xl:ml-28">
+          {dataGames.map((jogo) => (
+            <img
+              key={jogo.id}
+              src={jogo.imagem}
+              alt={`logo-${jogo.id}`}
+              width={48}
+              height={48}
+              className={`cursor-pointer ${
+                jogo !== gameSelected ? 'grayscale' : ''
+              }`}
+              onClick={() => handleCliqueJogo(jogo)}
+            />
+          ))}
         </div>
       </div>
-      <div className="hidden md:grid gap-60 xl:gap-32 mr-12 mt-9 justify-center">
-        <Image
-          src="/assets/banner-hero/games/diablo-logo.png"
-          alt="logo"
-          width={280}
-          height={154}
-        />
+      <div className="hidden md:grid gap-60 xl:gap-32 mr-32 mt-9 justify-center">
+        <Image src={gameSelected.logo} alt="logo" width={280} height={154} />
         <div className="grid justify-center bg-cover bg-center w-72 h-40">
           <div
             onMouseEnter={() => setIsHovered(true)}
@@ -82,11 +127,7 @@ export const HomePage: React.FC = () => {
             </span>
             <div className="relative">
               <Image
-                src={
-                  isHovered
-                    ? '/assets/banner-hero/games/diablo-animation.gif'
-                    : '/assets/banner-hero/games/diablo-animation-cover.png'
-                }
+                src={isHovered ? gameSelected.gif : gameSelected.gifCover}
                 alt="preview gif"
                 width={280}
                 height={158}
@@ -98,7 +139,9 @@ export const HomePage: React.FC = () => {
                   alt="play"
                   width={46}
                   height={46}
-                  className="cursor-pointer hover:bg-blue-500 rounded-full"
+                  className={
+                    isHovered ? 'bg-blue-500 brightness-200 rounded-full' : ''
+                  }
                 />
               </div>
             </div>

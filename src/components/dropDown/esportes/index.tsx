@@ -14,7 +14,9 @@ export const DropdownEsportes: React.FC<DropdownJogosProps> = ({
 
   return (
     <div
-      style={{ display: showDropdown ? 'block' : 'none', position: 'relative' }}
+      style={{
+        display: showDropdown ? 'block' : 'none'
+      }}
     >
       <div className="absolute w-full z-20 bg-neutral-950 h-[640px] bg-opacity-90 top-0 backdrop-blur-sm flex items-center justify-center">
         <div className="grid justify-items-center grid-flow-col mx-28 mt-12 gap-6">

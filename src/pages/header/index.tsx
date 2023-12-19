@@ -21,14 +21,13 @@ export const Header = () => {
 
   return (
     <div>
-      <header className="w-full h-20 md:h-24 bg-transparent flex items-center justify-between absolute border-b-2 border-opacity-10 border-white z-30">
+      <header className="w-[758px] md:w-full h-20 md:h-24 bg-transparent flex items-center justify-between absolute border-b-2 border-opacity-10 border-white z-30">
         <div className="ml-6 md:ml-11 grid xl:ml-28 gap-6 mt-6 md:gap-8 md:mt-8 justify-items-start">
           <Image
             src="/assets/logo-blizzard.png"
             alt="logo"
             width={69}
             height={32}
-            className="md:w-[87px]"
           />
           <Image
             src="/assets/Vector 7.svg"
@@ -38,7 +37,7 @@ export const Header = () => {
             className="mt-5"
           />
         </div>
-        <div>
+        <>
           <ul className="hidden xl:flex gap-4 text-center text-white text-sm font-medium ">
             <li className="flex gap-1 cursor-pointer" onClick={toggleDropdown1}>
               Jogos
@@ -68,9 +67,9 @@ export const Header = () => {
             </li>
             <li>Loja</li>
             <li>Noticias</li>
-            <li>Supoerte</li>
+            <li>Suporte</li>
           </ul>
-        </div>
+        </>
         <div className="mr-6 flex xl:mr-28 items-center">
           <div className="hidden md:flex mr-20 gap-4">
             <a className="w-32 h-[41px] px-4 py-2.5 rounded-[3px] border border-white gap-[7px] text-center text-white text-sm font-medium cursor-pointer">
