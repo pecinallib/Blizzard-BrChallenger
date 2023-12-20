@@ -1,7 +1,8 @@
+import { Footer } from 'pages/footer';
 import { Games } from 'pages/games';
-import '../app/globals.css';
 import { Header } from 'pages/header';
 import { HomePage } from 'pages/home';
+import '../app/globals.css';
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <HomePage />
       <Games />
+      <Footer />
     </div>
   );
 }

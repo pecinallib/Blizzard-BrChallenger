@@ -11,6 +11,12 @@
   text-decoration: none;
 }
 
+@layer components {
+  .btn {
+    @apply bg-sky-500 rounded flex justify-center items-center text-white;
+  }
+}
+
 .blue-arrow {
   filter: invert(27%) sepia(93%) saturate(1000%) hue-rotate(193deg) brightness(90%) contrast(100%);
 }

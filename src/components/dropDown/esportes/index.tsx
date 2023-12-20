@@ -1,5 +1,5 @@
 import Image from 'next/legacy/image';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { esporteLinks } from './esportesLinks';
 
@@ -10,8 +10,6 @@ type DropdownJogosProps = {
 export const DropdownEsportes: React.FC<DropdownJogosProps> = ({
   showDropdown
 }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   return (
     <div
       style={{
@@ -26,14 +24,8 @@ export const DropdownEsportes: React.FC<DropdownJogosProps> = ({
                 key={index}
                 className="w-[174px] h-[237px] pb-[31px] 
                 gap-[23px] flex flex-col items-center justify-center cursor-pointer"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div
-                  className={`transform transition-all ${
-                    hoveredIndex === index ? 'scale-125' : 'scale-100'
-                  }`}
-                >
+                <div className="transform transition-all hover:scale-125">
                   <Image
                     src={item.leagueImage}
                     alt="gameIcon"

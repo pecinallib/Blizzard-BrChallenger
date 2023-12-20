@@ -12,7 +12,6 @@ interface Games {
 
 export const Games = () => {
   const [games, setGames] = useState<Games[]>([]);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
     fetch('https://api.brchallenges.com/api/blizzard/games')
@@ -78,12 +77,8 @@ export const Games = () => {
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center">
           {games.map((item, key) => (
-            <div
-              key={key}
-              onMouseEnter={() => setHoveredIndex(key)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="w-[156px] h-[213.94px] bg-cover bg-center grid justify-center items-end rounded-sm md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden">
+            <div key={key}>
+              <div className="w-[156px] h-[213.94px] bg-cover bg-center grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
                 {item.image && (
                   <Image
                     src={item.image}
@@ -93,21 +88,14 @@ export const Games = () => {
                     objectFit="cover"
                     quality={100}
                     loading="eager"
-                    className={`w-full h-full transform transition-all ${
-                      hoveredIndex === key ? 'scale-125' : 'scale-100'
-                    }`}
+                    className="w-full h-full hover:scale-125 transform transition-all"
                   />
                 )}
                 {item.logo && (
-                  <Image
+                  <img
                     src={item.logo}
-                    alt="logo-game"
-                    width={82}
-                    height={54}
-                    quality={100}
-                    loading="eager"
-                    objectFit="cover"
-                    className="mb-6 xl:w-[148px] xl:h-[98px] absolute left-[25%]"
+                    alt="Logo Game"
+                    className="w-[82px] h-[54px] mb-6 xl:w-[148px] xl:h-[98px] absolute"
                   />
                 )}
               </div>
