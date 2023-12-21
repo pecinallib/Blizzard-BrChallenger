@@ -3,8 +3,6 @@ import Image from 'next/legacy/image';
 import { useState } from 'react';
 import React from 'react';
 
-import { ButtonComponents } from '../../components/button/index';
-
 interface Game {
   id: number;
   imagem: string;
@@ -79,7 +77,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <section
-      className={`w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center transition-all duration-500 ease-in-out`}
+      className={`w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center transition-all duration-500 ease-in-out relative`}
       style={{
         backgroundImage: `url(${gameSelected.fundo})`
       }}
@@ -94,9 +92,15 @@ export const HomePage: React.FC = () => {
               {gameSelected.descricao}
             </p>
           </div>
-          <div className="mt-8">
-            <ButtonComponents text="Jogue Agora" type="button" />
-          </div>
+          {gameSelected.id === 1 ? (
+            <button className="btn mt-8 px-8 py-3.5 font-semibold">
+              Jogue Agora
+            </button>
+          ) : (
+            <button className="btn mt-8 px-8 py-3.5 font-semibold">
+              Reserve agora na Pré-Venda
+            </button>
+          )}
         </div>
         <div className="flex gap-5 mt-12 xl:flex-col xl:col-start-1 xl:w-12 xl:justify-center xl:ml-28">
           {dataGames.map((jogo) => (
@@ -148,6 +152,19 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+      <hr
+        className="border-b-2 absolute border-sky-500 bottom-0 transform transition-all duration-500"
+        style={{
+          width:
+            gameSelected.id === 1
+              ? '30%'
+              : gameSelected.id === 2
+                ? '50%'
+                : gameSelected.id === 3
+                  ? '70%'
+                  : '100%'
+        }}
+      />
     </section>
   );
 };

@@ -82,13 +82,13 @@ export const Games = () => {
                 {item.image && (
                   <Image
                     src={item.image}
-                    alt="logo-game"
+                    alt="Game Image"
                     width={287}
                     height={393}
                     objectFit="cover"
                     quality={100}
                     loading="eager"
-                    className="w-full h-full hover:scale-125 transform transition-all"
+                    className="w-full h-full hover:scale-125 transform transition-all duration-500"
                   />
                 )}
                 {item.logo && (

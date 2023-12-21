@@ -13,7 +13,7 @@
 
 @layer components {
   .btn {
-    @apply bg-sky-500 rounded flex justify-center items-center text-white;
+    @apply bg-sky-500 rounded flex justify-center items-center text-white hover:bg-sky-400;
   }
 }
 

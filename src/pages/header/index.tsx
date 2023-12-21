@@ -4,10 +4,12 @@ import { useState } from 'react';
 
 import { DropdownEsportes } from 'components/dropDown/esportes';
 import { DropdownJogos } from 'components/dropDown/jogos';
+import { Login } from 'components/login';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [showDropdown1, setShowDropdown1] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const toggleDropdown1 = () => {
     setShowDropdown1(!showDropdown1);
@@ -17,6 +19,10 @@ export const Header = () => {
   const toggleDropdown2 = () => {
     setShowDropdown2(!showDropdown2);
     setShowDropdown1(false);
+  };
+
+  const toggleLogin = () => {
+    setShowLogin(!showLogin);
   };
 
   return (
@@ -38,7 +44,7 @@ export const Header = () => {
           />
         </div>
         <>
-          <ul className="hidden xl:flex gap-4 text-center text-white text-sm font-medium ">
+          <ul className="hidden xl:flex gap-8 text-center text-white text-sm font-medium ">
             <li className="flex gap-1 cursor-pointer" onClick={toggleDropdown1}>
               Jogos
               <Image
@@ -75,7 +81,10 @@ export const Header = () => {
             <a className="w-32 h-[41px] px-4 py-2.5 rounded-[3px] border border-white gap-[7px] text-center text-white text-sm font-medium cursor-pointer">
               Criar Conta
             </a>
-            <a className="w-[115px] h-[41px] px-[25px] py-2.5 bg-sky-500 rounded-[3.15px] gap-[6px] inline-flex text-center text-white text-sm font-medium cursor-pointer">
+            <a
+              className="px-[25px] py-2.5 btn gap-[6px] inline-flex text-sm font-medium cursor-pointer"
+              onClick={toggleLogin}
+            >
               <Image
                 src="/assets/login.svg"
                 alt="detalhe menu"
@@ -97,6 +106,12 @@ export const Header = () => {
       </header>
       {<DropdownJogos showDropdown={showDropdown1} />}
       {<DropdownEsportes showDropdown={showDropdown2} />}
+      {
+        <Login
+          loginShow1={showLogin}
+          toggleLogin={() => setShowLogin(!showLogin)}
+        />
+      }
     </div>
   );
 };
