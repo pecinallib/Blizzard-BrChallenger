@@ -87,7 +87,7 @@ export const Games = () => {
         <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center">
           {games.map((item, key) => (
             <div key={key}>
-              <div className="w-[156px] h-[213.94px] grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
+              <div className="w-[156px] h-[213px] grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
                 {item.image && (
                   <Image
                     src={item.image}
@@ -112,7 +112,7 @@ export const Games = () => {
                 <div
                   onMouseOver={() => hoverShadow(key)}
                   onMouseLeave={shadowLeave}
-                  className="hover:bg-gradient-to-b from-transparent to-black w-full h-[393px] absolute"
+                  className="hover:bg-gradient-to-b h-[213px] from-transparent to-black w-full xl:h-[393px] md:h-[285px] absolute opacity-70"
                 ></div>
               </div>
               <div className="hidden md:block">

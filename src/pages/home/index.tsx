@@ -118,7 +118,7 @@ export const HomePage: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="hidden md:grid gap-60 xl:gap-32 mr-32 mt-9 justify-center">
+      <div className="hidden md:grid gap-60 xl:gap-32 mr-24 mt-9 justify-center">
         <Image src={gameSelected.logo} alt="logo" width={280} height={154} />
         <div className="grid justify-center bg-cover bg-center w-72 h-40">
           <div

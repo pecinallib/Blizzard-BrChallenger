@@ -28,16 +28,17 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
   return (
     <div
       style={{
-        display: loginShow1 ? 'block' : 'none'
+        display: loginShow1 ? 'flex' : 'none'
       }}
-      className="w-full h-screen bg-black bg-opacity-70 z-50 fixed"
+      className="w-full h-screen bg-black bg-opacity-70 z-40 fixed items-center justify-center"
     >
       <div
         ref={modalRef}
         style={{
-          backgroundImage: 'url(/assets/showLogin/loginShow.png)'
+          backgroundImage:
+            'linear-gradient(to left, rgba(0, 0, 0, 0.8) 60%, transparent 100%), url(/assets/showLogin/loginShow.png)'
         }}
-        className="w-[696px] h-[600px] bg-cover bg-center bg-no-repeat rounded left-[30%] top-[20%] absolute"
+        className="w-[696px] h-[600px] bg-cover bg-center bg-no-repeat rounded relative"
       >
         <div className="flex flex-col items-end">
           <Image
