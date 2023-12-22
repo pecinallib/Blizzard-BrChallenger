@@ -37,7 +37,7 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
         style={{
           backgroundImage: 'url(/assets/showLogin/loginShow.png)'
         }}
-        className="w-[696px] h-[600px] bg-cover bg-center bg-no-repeat rounded left-[30%] top-[20%] absolute shadow-inner"
+        className="w-[696px] h-[600px] bg-cover bg-center bg-no-repeat rounded left-[30%] top-[20%] absolute"
       >
         <div className="flex flex-col items-end">
           <Image

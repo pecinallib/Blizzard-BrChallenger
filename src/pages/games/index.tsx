@@ -12,6 +12,15 @@ interface Games {
 
 export const Games = () => {
   const [games, setGames] = useState<Games[]>([]);
+  const [shadow, setShadow] = useState<number | null>(null);
+
+  const hoverShadow = (e: number) => {
+    setShadow(e);
+  };
+
+  const shadowLeave = () => {
+    setShadow(null);
+  };
 
   useEffect(() => {
     fetch('https://api.brchallenges.com/api/blizzard/games')
@@ -78,7 +87,7 @@ export const Games = () => {
         <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center">
           {games.map((item, key) => (
             <div key={key}>
-              <div className="w-[156px] h-[213.94px] bg-cover bg-center grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
+              <div className="w-[156px] h-[213.94px] grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
                 {item.image && (
                   <Image
                     src={item.image}
@@ -88,7 +97,9 @@ export const Games = () => {
                     objectFit="cover"
                     quality={100}
                     loading="eager"
-                    className="w-full h-full hover:scale-125 transform transition-all duration-500"
+                    className={`duration-500 ${
+                      shadow === key ? 'scale-125' : ''
+                    }`}
                   />
                 )}
                 {item.logo && (
@@ -98,6 +109,11 @@ export const Games = () => {
                     className="w-[82px] h-[54px] mb-6 xl:w-[148px] xl:h-[98px] absolute"
                   />
                 )}
+                <div
+                  onMouseOver={() => hoverShadow(key)}
+                  onMouseLeave={shadowLeave}
+                  className="hover:bg-gradient-to-b from-transparent to-black w-full h-[393px] absolute"
+                ></div>
               </div>
               <div className="hidden md:block">
                 <h1 className="text-neutral-200 text-base font-semibold mt-3">

@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
         </>
         <div className="mr-6 flex xl:mr-28 items-center">
           <div className="hidden md:flex mr-20 gap-4">
-            <a className="w-32 h-[41px] px-4 py-2.5 rounded-[3px] border border-white gap-[7px] text-center text-white text-sm font-medium cursor-pointer">
+            <a className="w-32 h-[41px] px-4 py-2.5 rounded-[3px] border border-white gap-[7px] text-center text-white text-sm font-medium cursor-pointer hover:text-black hover:bg-white duration-500 ">
               Criar Conta
             </a>
             <a
@@ -106,12 +106,12 @@ export const Header: React.FC = () => {
       </header>
       {<DropdownJogos showDropdown={showDropdown1} />}
       {<DropdownEsportes showDropdown={showDropdown2} />}
-      {
+      {showLogin && (
         <Login
           loginShow1={showLogin}
           toggleLogin={() => setShowLogin(!showLogin)}
         />
-      }
+      )}
     </div>
   );
 };
