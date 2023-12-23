@@ -1,6 +1,6 @@
-'use client';
-import Image from 'next/legacy/image';
-import React, { useEffect, useRef } from 'react';
+"use client";
+import Image from "next/legacy/image";
+import React, { useEffect, useRef } from "react";
 
 type loginShow = {
   loginShow1: boolean;
@@ -19,16 +19,16 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
         toggleLogin();
       }
     };
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [toggleLogin]);
 
   return (
     <div
       style={{
-        display: loginShow1 ? 'flex' : 'none'
+        display: loginShow1 ? "flex" : "none",
       }}
       className="w-full h-screen bg-black bg-opacity-70 z-40 fixed items-center justify-center"
     >
@@ -36,7 +36,7 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
         ref={modalRef}
         style={{
           backgroundImage:
-            'linear-gradient(to left, rgba(0, 0, 0, 0.8) 60%, transparent 100%), url(/assets/showLogin/loginShow.png)'
+            "linear-gradient(to left, rgba(0, 0, 0, 0.8) 60%, transparent 100%), url(/assets/showLogin/loginShow.png)",
         }}
         className="w-[696px] h-[600px] bg-cover bg-center bg-no-repeat rounded relative"
       >
@@ -102,7 +102,7 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
           <p className="text-white text-base font-medium mt-9">
             <span className="cursor-pointer underline text-sky-500 text-base font-medium">
               Crie uma conta
-            </span>{' '}
+            </span>{" "}
             Battle.net de graça
           </p>
           <p className="cursor-pointer underline text-sky-500 text-base font-medium mt-4">

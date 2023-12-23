@@ -8,12 +8,12 @@ type DropdownJogosProps = {
 };
 
 export const DropdownEsportes: React.FC<DropdownJogosProps> = ({
-  showDropdown
+  showDropdown,
 }) => {
   return (
     <div
       style={{
-        display: showDropdown ? "block" : "none"
+        display: showDropdown ? "block" : "none",
       }}
     >
       <div className="absolute w-full z-20 bg-neutral-950 h-[640px] bg-opacity-90 top-0 backdrop-blur-sm flex items-center justify-center">

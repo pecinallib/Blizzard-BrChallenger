@@ -14,7 +14,7 @@ const Footer = () => {
     <footer
       className="w-full bg-cover bg-center pt-16 md:flex"
       style={{
-        backgroundImage: `url(/assets/footer-background.png)`
+        backgroundImage: `url(/assets/footer-background.png)`,
       }}
     >
       <div className="ml-6 xl:ml-28">
@@ -111,7 +111,7 @@ const Footer = () => {
       <div
         className="w-[528px] h-[350px] bg-cover relative overflow-hidden md:w-[900px] md:h-[506px] xl:w-[1053px] xl:h-[593px] xl:ml-48  xl:mb-32"
         style={{
-          backgroundImage: `url(/assets/ilustrations/app.png)`
+          backgroundImage: `url(/assets/ilustrations/app.png)`,
         }}
       >
         <div className="absolute -bottom-3 -right-16 md:-right-36 2xl:right-24 2xl:-bottom-[77px] w-[320px] h-[220px] md:w-[466px] md:h-[285px] xl:w-[562px] xl:h-[343px]">

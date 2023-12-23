@@ -5,16 +5,16 @@ import "./globals.css";
 const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
   title: "Blizzard",
-  description: "Copy Blizzard Page"
+  description: "Copy Blizzard Page",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {

@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                 width={10}
                 height={5}
                 style={{
-                  transform: `rotate(${showDropdown1 ? 180 : 0}deg)`
+                  transform: `rotate(${showDropdown1 ? 180 : 0}deg)`,
                 }}
                 className={showDropdown1 ? "blue-arrow" : ""}
               />
@@ -66,7 +66,7 @@ const Header: React.FC = () => {
                 width={10}
                 height={5}
                 style={{
-                  transform: `rotate(${showDropdown2 ? 180 : 0}deg)`
+                  transform: `rotate(${showDropdown2 ? 180 : 0}deg)`,
                 }}
                 className={showDropdown2 ? "blue-arrow" : ""}
               />

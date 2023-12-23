@@ -1,6 +1,6 @@
-'use client';
-import Image from 'next/legacy/image';
-import { useState } from 'react';
+"use client";
+import Image from "next/legacy/image";
+import { useState } from "react";
 
 interface Game {
   id: number;
@@ -16,54 +16,54 @@ interface Game {
 const dataGames: Game[] = [
   {
     id: 1,
-    imagem: '/assets/banner-hero/icons/game-1.png',
-    fundo: '/assets/banner-hero/games/diablo-bg.png',
-    logo: '/assets/banner-hero/games/diablo-logo.png',
-    texto: 'Retorne à escuridão com o jogo Diablo IV',
-    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
-    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
-    gif: '/assets/banner-hero/games/diablo-animation.gif'
+    imagem: "/assets/banner-hero/icons/game-1.png",
+    fundo: "/assets/banner-hero/games/diablo-bg.png",
+    logo: "/assets/banner-hero/games/diablo-logo.png",
+    texto: "Retorne à escuridão com o jogo Diablo IV",
+    descricao: "O retorno de Lilith traz uma era de escuridão e sofrimento",
+    gifCover: "/assets/banner-hero/games/diablo-animation-cover.png",
+    gif: "/assets/banner-hero/games/diablo-animation.gif",
   },
   {
     id: 2,
-    imagem: '/assets/banner-hero/icons/game-2.png',
-    fundo: '/assets/banner-hero/games/hearthstone-bg.png',
-    logo: '/assets/banner-hero/games/hearthstone-logo.png',
-    texto: 'Novo pacote de expansão Hearthstone',
-    descricao: 'A Horda e a Aliança se encontraram no Vale Alterac para lutar',
-    gifCover: '/assets/banner-hero/games/hearthstone-animation-cover.png',
-    gif: '/assets/banner-hero/games/hearthstone-animation.gif'
+    imagem: "/assets/banner-hero/icons/game-2.png",
+    fundo: "/assets/banner-hero/games/hearthstone-bg.png",
+    logo: "/assets/banner-hero/games/hearthstone-logo.png",
+    texto: "Novo pacote de expansão Hearthstone",
+    descricao: "A Horda e a Aliança se encontraram no Vale Alterac para lutar",
+    gifCover: "/assets/banner-hero/games/hearthstone-animation-cover.png",
+    gif: "/assets/banner-hero/games/hearthstone-animation.gif",
   },
   {
     id: 3,
-    imagem: '/assets/banner-hero/icons/game-3.png',
-    fundo: '/assets/banner-hero/games/wow-bg.png',
-    logo: '/assets/banner-hero/games/wow-logo.png',
-    texto: 'Desbrave as Terras Sombrias em Shadowlands!',
-    descricao: 'O que jaz além do mundo que você conhece?',
-    gifCover: '/assets/banner-hero/games/wow-animation-cover.png',
-    gif: '/assets/banner-hero/games/wow-animation.gif'
+    imagem: "/assets/banner-hero/icons/game-3.png",
+    fundo: "/assets/banner-hero/games/wow-bg.png",
+    logo: "/assets/banner-hero/games/wow-logo.png",
+    texto: "Desbrave as Terras Sombrias em Shadowlands!",
+    descricao: "O que jaz além do mundo que você conhece?",
+    gifCover: "/assets/banner-hero/games/wow-animation-cover.png",
+    gif: "/assets/banner-hero/games/wow-animation.gif",
   },
   {
     id: 4,
-    imagem: '/assets/banner-hero/icons/game-4.png',
-    fundo: '/assets/banner-hero/games/diablo-bg.png',
-    logo: '/assets/banner-hero/games/diablo-logo.png',
-    texto: 'Retorne à escuridão com o jogo Diablo IV',
-    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
-    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
-    gif: '/assets/banner-hero/games/diablo-animation.gif'
+    imagem: "/assets/banner-hero/icons/game-4.png",
+    fundo: "/assets/banner-hero/games/diablo-bg.png",
+    logo: "/assets/banner-hero/games/diablo-logo.png",
+    texto: "Retorne à escuridão com o jogo Diablo IV",
+    descricao: "O retorno de Lilith traz uma era de escuridão e sofrimento",
+    gifCover: "/assets/banner-hero/games/diablo-animation-cover.png",
+    gif: "/assets/banner-hero/games/diablo-animation.gif",
   },
   {
     id: 5,
-    imagem: '/assets/banner-hero/icons/game-5.png',
-    fundo: '/assets/banner-hero/games/diablo-bg.png',
-    logo: '/assets/banner-hero/games/diablo-logo.png',
-    texto: 'Retorne à escuridão com o jogo Diablo IV',
-    descricao: 'O retorno de Lilith traz uma era de escuridão e sofrimento',
-    gifCover: '/assets/banner-hero/games/diablo-animation-cover.png',
-    gif: '/assets/banner-hero/games/diablo-animation.gif'
-  }
+    imagem: "/assets/banner-hero/icons/game-5.png",
+    fundo: "/assets/banner-hero/games/diablo-bg.png",
+    logo: "/assets/banner-hero/games/diablo-logo.png",
+    texto: "Retorne à escuridão com o jogo Diablo IV",
+    descricao: "O retorno de Lilith traz uma era de escuridão e sofrimento",
+    gifCover: "/assets/banner-hero/games/diablo-animation-cover.png",
+    gif: "/assets/banner-hero/games/diablo-animation.gif",
+  },
 ];
 
 const HomePage: React.FC = () => {
@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
     <section
       className={`w-full h-[658px] bg-cover grid bg-center md:h-[758px] md:grid-cols-3 md:items-center transition-all duration-500 ease-in-out relative`}
       style={{
-        backgroundImage: `url(${gameSelected.fundo})`
+        backgroundImage: `url(${gameSelected.fundo})`,
       }}
     >
       <div className="ml-6 md:ml-12 col-span-2 xl:grid xl:grid-flow-col xl:grid-cols-2 xl:ml-0">
@@ -110,7 +110,7 @@ const HomePage: React.FC = () => {
               width={48}
               height={48}
               className={`cursor-pointer ${
-                jogo !== gameSelected ? 'grayscale' : ''
+                jogo !== gameSelected ? "grayscale" : ""
               }`}
               onClick={() => handleCliqueJogo(jogo)}
             />
@@ -143,7 +143,7 @@ const HomePage: React.FC = () => {
                   width={46}
                   height={46}
                   className={
-                    isHovered ? 'bg-blue-500 brightness-200 rounded-full' : ''
+                    isHovered ? "bg-blue-500 brightness-200 rounded-full" : ""
                   }
                 />
               </div>
@@ -156,12 +156,12 @@ const HomePage: React.FC = () => {
         style={{
           width:
             gameSelected.id === 1
-              ? '30%'
+              ? "30%"
               : gameSelected.id === 2
-                ? '50%'
+                ? "50%"
                 : gameSelected.id === 3
-                  ? '70%'
-                  : '100%'
+                  ? "70%"
+                  : "100%",
         }}
       />
     </section>

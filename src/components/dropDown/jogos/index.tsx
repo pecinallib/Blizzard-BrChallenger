@@ -8,7 +8,7 @@ type DropdownJogosProps = {
 };
 
 export const DropdownJogos: React.FC<DropdownJogosProps> = ({
-  showDropdown
+  showDropdown,
 }) => {
   return (
     <div
