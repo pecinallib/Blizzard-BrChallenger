@@ -76,14 +76,13 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
           <p className="mt-10 text-white text-sm font-medium">
             ou conecte-se com
           </p>
-          <div className="flex">
+          <div className="flex gap-4 mt-4">
             <Image
               src="/assets/showLogin/google.svg"
               alt="Logo Google"
               width={48}
               height={48}
               quality={100}
-              className="mr-4 mt-4"
             />
             <Image
               src="/assets/showLogin/apple.svg"
@@ -91,7 +90,6 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
               width={48}
               height={48}
               quality={100}
-              className="mr-4 mt-4"
             />
             <Image
               src="/assets/showLogin/facebook.svg"
@@ -99,7 +97,6 @@ export const Login: React.FC<loginShow> = ({ loginShow1, toggleLogin }) => {
               width={48}
               height={48}
               quality={100}
-              className="mt-4"
             />
           </div>
           <p className="text-white text-base font-medium mt-9">

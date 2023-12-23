@@ -1,17 +1,16 @@
 'use client';
 import Image from 'next/legacy/image';
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-interface Games {
+interface TypeGames {
   name: string;
   category: string;
   image?: string;
   logo: string;
 }
 
-export const Games = () => {
-  const [games, setGames] = useState<Games[]>([]);
+const Games = () => {
+  const [games, setGames] = useState<TypeGames[]>([]);
   const [shadow, setShadow] = useState<number | null>(null);
 
   const hoverShadow = (e: number) => {
@@ -25,11 +24,14 @@ export const Games = () => {
   useEffect(() => {
     fetch('https://api.brchallenges.com/api/blizzard/games')
       .then(async (response) => {
+        if (!response.ok) {
+          throw new Error('Resposta de rede não foi bem-sucedida');
+        }
         const json = await response.json();
         setGames(json);
       })
       .catch((error) => {
-        console.log('Error', error);
+        console.error('Erro ao buscar dados:', error);
       });
   }, []);
 
@@ -76,17 +78,17 @@ export const Games = () => {
               width={20}
               height={20}
             />
-            <Link
+            <a
               href="#"
               className="text-center text-sky-500 text-sm font-semibold"
             >
               Ver todos jogos
-            </Link>
+            </a>
           </div>
         </div>
         <div className="flex flex-wrap gap-x-4 gap-y-6 justify-center">
           {games.map((item, key) => (
-            <div key={key}>
+            <div key={key} className="relative">
               <div className="w-[156px] h-[213px] grid items-end rounded-md md:w-[210px] md:h-[285px] xl:w-[287px] xl:h-[393px] relative overflow-hidden justify-items-center">
                 {item.image && (
                   <Image
@@ -94,25 +96,29 @@ export const Games = () => {
                     alt="Game Image"
                     width={287}
                     height={393}
-                    objectFit="cover"
                     quality={100}
                     loading="eager"
-                    className={`duration-500 ${
+                    className={`relative duration-500 ${
                       shadow === key ? 'scale-125' : ''
                     }`}
                   />
                 )}
                 {item.logo && (
-                  <img
-                    src={item.logo}
-                    alt="Logo Game"
-                    className="w-[82px] h-[54px] mb-6 xl:w-[148px] xl:h-[98px] absolute"
-                  />
+                  <div className="absolute mb-4 w-[82px] h-[54px] md:w-[107px] md:h-[71px] xl:w-[148px] xl:h-[98px]">
+                    <Image
+                      src={item.logo}
+                      alt="Logo Game"
+                      width={148}
+                      height={98}
+                      quality={100}
+                    />
+                  </div>
                 )}
+
                 <div
                   onMouseOver={() => hoverShadow(key)}
                   onMouseLeave={shadowLeave}
-                  className="hover:bg-gradient-to-b h-[213px] from-transparent to-black w-full xl:h-[393px] md:h-[285px] absolute opacity-70"
+                  className="hover:bg-gradient-to-b h-full from-transparent to-black w-full xl:h-[393px] md:h-[285px] absolute opacity-70"
                 ></div>
               </div>
               <div className="hidden md:block">
@@ -141,12 +147,12 @@ export const Games = () => {
                 height={20}
                 className="hidden md:block"
               />
-              <Link
+              <a
                 href="#"
                 className="text-center text-white text-sm font-semibold"
               >
                 Ver todos jogos
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -154,3 +160,5 @@ export const Games = () => {
     </section>
   );
 };
+
+export default Games;

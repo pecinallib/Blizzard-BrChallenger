@@ -6,7 +6,7 @@ import { DropdownEsportes } from 'components/dropDown/esportes';
 import { DropdownJogos } from 'components/dropDown/jogos';
 import { Login } from 'components/login';
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
   const [showDropdown1, setShowDropdown1] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
@@ -115,3 +115,5 @@ export const Header: React.FC = () => {
     </div>
   );
 };
+
+export default Header;

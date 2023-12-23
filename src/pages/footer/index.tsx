@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/legacy/image';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-export const Footer = () => {
+const Footer = () => {
   const [system, setSystem] = useState('');
 
   useEffect(() => {
@@ -114,14 +114,18 @@ export const Footer = () => {
           backgroundImage: `url(/assets/ilustrations/app.png)`
         }}
       >
-        <div className="absolute -bottom-3 -right-16 md:-right-36 2xl:right-24 2xl:-bottom-[77px]">
-          <img
+        <div className="absolute -bottom-3 -right-16 md:-right-36 2xl:right-24 2xl:-bottom-[77px] w-[320px] h-[220px] md:w-[466px] md:h-[285px] xl:w-[562px] xl:h-[343px]">
+          <Image
             src="/assets/ilustrations/app-mini.png"
             alt="app-mini"
-            className="w-[320px] h-[220px] md:w-[466px] md:h-[285px] xl:w-[562px] xl:h-[343px]"
+            layout="fill"
+            width={562}
+            height={343}
           />
         </div>
       </div>
     </footer>
   );
 };
+
+export default Footer;

@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/legacy/image';
 import { useState } from 'react';
-import React from 'react';
 
 interface Game {
   id: number;
@@ -67,7 +66,7 @@ const dataGames: Game[] = [
   }
 ];
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
   const [gameSelected, setGameSelected] = useState(dataGames[0]);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -104,7 +103,7 @@ export const HomePage: React.FC = () => {
         </div>
         <div className="flex gap-5 mt-12 xl:flex-col xl:col-start-1 xl:w-12 xl:justify-center xl:ml-28">
           {dataGames.map((jogo) => (
-            <img
+            <Image
               key={jogo.id}
               src={jogo.imagem}
               alt={`logo-${jogo.id}`}
@@ -168,3 +167,5 @@ export const HomePage: React.FC = () => {
     </section>
   );
 };
+
+export default HomePage;
