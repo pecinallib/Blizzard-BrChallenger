@@ -1,7 +1,7 @@
-import Image from 'next/legacy/image';
-import React from 'react';
+import Image from "next/legacy/image";
+import React from "react";
 
-import { jogosOption } from './jogosLinks';
+import { jogosOption } from "./jogosLinks";
 
 type DropdownJogosProps = {
   showDropdown: boolean;
@@ -12,7 +12,7 @@ export const DropdownJogos: React.FC<DropdownJogosProps> = ({
 }) => {
   return (
     <div
-      style={{ display: showDropdown ? 'block' : 'none', position: 'relative' }}
+      style={{ display: showDropdown ? "block" : "none", position: "relative" }}
     >
       <div className="absolute w-full z-20 bg-neutral-950 h-[640px] bg-opacity-90 top-0 backdrop-blur-sm flex items-center justify-center">
         <div className="grid justify-items-center grid-flow-col grid-cols-6 grid-rows-2 mx-28 mt-12 gap-6">

@@ -1,9 +1,9 @@
-'use client';
-import Image from 'next/legacy/image';
-import { useState, useEffect } from 'react';
+"use client";
+import Image from "next/legacy/image";
+import { useState, useEffect } from "react";
 
 const Footer = () => {
-  const [system, setSystem] = useState('');
+  const [system, setSystem] = useState("");
 
   useEffect(() => {
     const systemNew = window.navigator.platform;
@@ -60,7 +60,7 @@ const Footer = () => {
             <p>Compre jogos e itens digitais</p>
           </div>
         </div>
-        {system.includes('Win') ? (
+        {system.includes("Win") ? (
           <button className="btn mb-10 py-3 px-8 gap-2 font-semibold">
             <Image
               src="/assets/banner-hero/icons/icon-windows.svg"
@@ -71,7 +71,7 @@ const Footer = () => {
             />
             Baixar para o Windows
           </button>
-        ) : system.includes('Mac') ? (
+        ) : system.includes("Mac") ? (
           <button className="btn mb-10 py-3 px-8 gap-2 font-semibold">
             <Image
               src="/assets/banner-hero/icons/icon-apple.svg"
@@ -103,7 +103,7 @@ const Footer = () => {
             quality={100}
           />
           <p className="text-neutral-200 text-sm font-semibold">
-            Também disponível como{' '}
+            Também disponível como{" "}
             <span className="underline">aplicativo móvel</span>
           </p>
         </div>

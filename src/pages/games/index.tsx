@@ -1,6 +1,6 @@
-'use client';
-import Image from 'next/legacy/image';
-import { useEffect, useState } from 'react';
+"use client";
+import Image from "next/legacy/image";
+import { useEffect, useState } from "react";
 
 interface TypeGames {
   name: string;
@@ -22,16 +22,16 @@ const Games = () => {
   };
 
   useEffect(() => {
-    fetch('https://api.brchallenges.com/api/blizzard/games')
+    fetch("https://api.brchallenges.com/api/blizzard/games")
       .then(async (response) => {
         if (!response.ok) {
-          throw new Error('Resposta de rede não foi bem-sucedida');
+          throw new Error("Resposta de rede não foi bem-sucedida");
         }
         const json = await response.json();
         setGames(json);
       })
       .catch((error) => {
-        console.error('Erro ao buscar dados:', error);
+        console.error("Erro ao buscar dados:", error);
       });
   }, []);
 
@@ -99,7 +99,7 @@ const Games = () => {
                     quality={100}
                     loading="eager"
                     className={`relative duration-500 ${
-                      shadow === key ? 'scale-125' : ''
+                      shadow === key ? "scale-125" : ""
                     }`}
                   />
                 )}

@@ -18,5 +18,6 @@
 }
 
 .blue-arrow {
-  filter: invert(27%) sepia(93%) saturate(1000%) hue-rotate(193deg) brightness(90%) contrast(100%);
+  filter: invert(27%) sepia(93%) saturate(1000%) hue-rotate(193deg)
+    brightness(90%) contrast(100%);
 }

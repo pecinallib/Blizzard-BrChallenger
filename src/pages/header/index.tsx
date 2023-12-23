@@ -1,10 +1,10 @@
-'use client';
-import Image from 'next/legacy/image';
-import { useState } from 'react';
+"use client";
+import Image from "next/legacy/image";
+import { useState } from "react";
 
-import { DropdownEsportes } from 'components/dropDown/esportes';
-import { DropdownJogos } from 'components/dropDown/jogos';
-import { Login } from 'components/login';
+import { DropdownEsportes } from "components/dropDown/esportes";
+import { DropdownJogos } from "components/dropDown/jogos";
+import { Login } from "components/login";
 
 const Header: React.FC = () => {
   const [showDropdown1, setShowDropdown1] = useState(false);
@@ -55,7 +55,7 @@ const Header: React.FC = () => {
                 style={{
                   transform: `rotate(${showDropdown1 ? 180 : 0}deg)`
                 }}
-                className={showDropdown1 ? 'blue-arrow' : ''}
+                className={showDropdown1 ? "blue-arrow" : ""}
               />
             </li>
             <li className="flex gap-1 cursor-pointer" onClick={toggleDropdown2}>
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                 style={{
                   transform: `rotate(${showDropdown2 ? 180 : 0}deg)`
                 }}
-                className={showDropdown2 ? 'blue-arrow' : ''}
+                className={showDropdown2 ? "blue-arrow" : ""}
               />
             </li>
             <li>Loja</li>
